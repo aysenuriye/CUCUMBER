@@ -2,15 +2,22 @@ package runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
+
+
+        plugin = {"html:target/cucumber-reports.html",
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"
+        },
         features = "src/test/resources/features",
-        glue = "stepdefinitions",
-        tags = "@wip" ,
-        dryRun = false
+        glue = "stepdefinitions",//nerden geldiği
+        tags = "@ss" ,//calısacak etikeltliler
+        dryRun = false //eksik adım varsa belirtir//true eksik adım olmadğını belirtir
 )
 public class Runner {
 
